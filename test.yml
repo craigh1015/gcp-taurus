@@ -1,0 +1,19 @@
+execution:
+- concurrency: 10
+  ramp-up: 10s
+  hold-for: 20s
+  scenario: simple
+
+scenarios:
+  simple:
+    think-time: 0.5
+    requests:
+    - http://blazedemo.com/
+    - http://blazedemo.com/vacation.html
+
+reporting:
+- module: blazemeter
+  browser-open: none
+#   report-name: CJH Build 1
+  test: CJH Taurus Demo
+  project: CJH Taurus Tests Group
