@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: load-test
+        image: gcr.io/taurus-12345/load-test
+        env:
+        - name: BZT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: bzt
+              key: BZT_TOKEN
+        args: ["-o", "modules.blazemeter.token=$(BZT_TOKEN)", "test.yml"]
+      restartPolicy: Never
+  backoffLimit: 2

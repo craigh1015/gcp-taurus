@@ -1,7 +1,7 @@
 execution:
-- concurrency: 10
-  ramp-up: 10s
-  hold-for: 20s
+- concurrency: 50
+  ramp-up: 60s
+  hold-for: 5m
   scenario: simple
 
 scenarios:
